@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .gradient-section {
+      background: linear-gradient(90deg, #3b82f6 0%, #f97316 100%);
+      padding: 4rem 2rem;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      border-radius: 12px;
+      width: 360px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .logo {
+      width: 300px;
+      height: 80px;
+      margin: 0 auto 2rem auto;
+      cursor: pointer;
+      object-fit: contain;
+      user-select: none;
+    }
+
+    input, button {
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      background: rgba(255 255 255 / 0.3);
+      color: white;
+      box-shadow: inset 0 0 5px rgba(255 255 255 / 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 123, 255, 0.7);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 14px rgba(0, 86, 179, 0.9);
+    }
+
+    .error-msg {
+      color: #ffb3b3;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .signup-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .signup-link a {
+      color: #ffd700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body class="gradient-section">
+  <div class="login-container">
+    <img src="images/Reallogo (1).png" alt="Logo" class="logo" id="logo" />
+    <h2>Login</h2>
+    <div id="errorMsg" class="error-msg">Please enter username and password.</div>
+    <form id="loginForm" autocomplete="off">
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button type="submit">Login</button>
+
+      <!-- Sign Up link -->
+      <p class="signup-link">
+        Don't have an account? 
+        <a href="signup.html">Sign Up</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const logo = document.getElementById('logo');
+      logo.addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
+
+      const loginForm = document.getElementById('loginForm');
+      const errorMsg = document.getElementById('errorMsg');
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (!username || !password) {
+          errorMsg.textContent = 'Please enter username and password.';
+          errorMsg.style.display = 'block';
+          return;
+        }
+
+        // Load users from localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Check for matching user
+        const validUser = users.find(user => user.username === username && user.password === password);
+
+        if (validUser) {
+          // Successful login
+          localStorage.setItem('loggedIn', 'true');
+          localStorage.setItem('currentUser', username);
+          window.location.href = 'profile.html';
+        } else {
+          // Invalid login
+          errorMsg.textContent = 'Invalid username or password.';
+          errorMsg.style.display = 'block';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
