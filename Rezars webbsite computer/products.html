@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Products - Jumperzz</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Reallogo (1).png" alt="Jumperzz Logo" />
+      </a>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Our Products</a>
+      <a href="index.html#aboutus">About Us</a>
+    </div>
+
+    <div class="nav-icons">
+            <button class="nav-icon-btn" aria-label="Profile">
+                <i class="fa-solid fa-user"></i>
+            </button>
+            <button class="nav-icon-btn" aria-label="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </div>
+    </nav>
+
+  <!-- Cart Side Panel -->
+  <aside id="cartPanel" class="side-panel" aria-hidden="true">
+  <button id="closeCartBtn" class="close-btn" aria-label="Close Cart">&times;</button>
+  <h2>Your Cart</h2>
+  <div id="cartItems" class="cart-items">
+    <!-- Cart products will be injected here -->
+  </div>
+  <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+</aside>
+
+  <!-- Main Products Section -->
+  <main style="padding: 2rem;">
+    <h1 style="text-align: center;">Our Products</h1>
+
+    <div class="products-background">
+      <div class="product-search-container">
+        <input type="text" id="productSearch" placeholder="Search products..." />
+      </div>
+
+      <div class="product-grid" id="productsGrid">
+        <!-- Products inserted by script.js -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Jumperzz. All rights reserved.</p>
+  </footer>
+
+  <!-- Scroll Hide Navbar -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.querySelector('.navbar');
+      let lastScrollY = window.scrollY;
+
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          navbar.classList.add('navbar--hidden');
+        } else {
+          navbar.classList.remove('navbar--hidden');
+        }
+        lastScrollY = currentScrollY;
+      });
+    });
+  </script>
+
+  <!-- Products & Search -->
+  <script>
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        const grid = document.getElementById('productsGrid');
+        const searchInput = document.getElementById('productSearch');
+
+        function displayProducts(filteredProducts) {
+          grid.innerHTML = '';
+          filteredProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+              <img src="${product.image}" alt="${product.name}" />
+              <h3>${product.name}</h3>
+              <p>${product.price}</p>
+              <a href="product.html?id=${product.id}" class="view-button">View Product</a>
+            `;
+            grid.appendChild(productCard);
+          });
+        }
+
+        displayProducts(products);
+
+        searchInput.addEventListener('input', () => {
+          const searchValue = searchInput.value.toLowerCase();
+          const filtered = products.filter(product =>
+            product.name.toLowerCase().includes(searchValue) ||
+            product.description.toLowerCase().includes(searchValue)
+          );
+          displayProducts(filtered);
+        });
+      });
+  </script>
+
+  <!-- Cart Panel Script -->
+  <script>
+    const cartPanel = document.getElementById('cartPanel');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    openCartBtn.addEventListener('click', () => {
+      cartPanel.setAttribute('aria-hidden', 'false');
+      cartPanel.classList.add('visible');
+    });
+
+    closeCartBtn.addEventListener('click', () => {
+      cartPanel.setAttribute('aria-hidden', 'true');
+      cartPanel.classList.remove('visible');
+    });
+  </script>
+
+<script src="script.js"></script>
+</body>
+
+</html>

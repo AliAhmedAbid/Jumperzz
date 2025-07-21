@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile</title>
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(90deg, #3b82f6 0%, #f97316 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+    button {
+      background-color: white;
+      color: #f97316;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ffb366;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Your Profile</h1>
+  <p>You are logged in!</p>
+  <button id="logoutBtn">Logout</button>
+
+  <script>
+    // Redirect to login if not logged in
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+
+    // Logout logic
+    const logoutBtn = document.getElementById('logoutBtn');
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('loggedIn');
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

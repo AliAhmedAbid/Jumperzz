@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Real Madrid Shirt",
+    "team": "Real Madrid",
+    "price": "599kr 6̶9̶9̶kr",
+    "image": "images/imagess/RMCFMZ0195-01-1.jpg",
+    "description": "Official Real Madrid home shirt. High-quality fabric and modern fit for fans and athletes alike. Very nice to wear and cool to flex with. An ultimate shirt for the legends",
+    "itemNumber": "RMZ-001"
+  },
+  {
+    "id": 2,
+    "name": "Barcelona Classic Shirt",
+    "team": "Barcelona",
+    "price": "699kr",
+    "image": "images/imagess/barca.jpg",
+    "description": "Vintage style Barcelona jersey for true fans of the Blaugrana. Comfortable and stylish. Very nice to wear and cool to flex with. An ultimate shirt for the legends.",
+    "itemNumber": "BAR-002"
+  },
+  {
+    "id": 3,
+    "name": "Manchester United Shirt",
+    "team": "Manchester United",
+    "price": "699kr",
+    "image": "images/imagess/manchester.jpg",
+    "description": "Classic Manchester United shirt with authentic club design. Perfect for match days. Very nice to wear and cool to flex with. An ultimate shirt for the legends",
+    "itemNumber": "MUFC-003"
+  },
+  {
+    "id": 4,
+    "name": "Liverpool Classic Shirt",
+    "team": "Liverpool",
+    "price": "699kr",
+    "image": "images/imagess/Nike-Liverpool-FC-Stadium-Home-Jersey-2022-23.jpg",
+    "description": "Liverpool FC home kit, designed by Nike. Breathable fabric and official club branding. Very nice to wear and cool to flex with. An ultimate shirt for the legends",
+    "itemNumber": "LIV-004"
+  },
+  {
+    "id": 5,
+    "name": "Juventus White Shirt",
+    "team": "Juventus",
+    "price": "699kr",
+    "image": "images/imagess/Juventus.jpg",
+    "description": "Iconic white Juventus jersey with black accents. Sleek, comfortable, and modern. Very nice to wear and cool to flex with. An ultimate shirt for the legends",
+    "itemNumber": "JUV-005"
+  },
+  {
+    "id": 6,
+    "name": "Paris Saint-Germain Shirt",
+    "team": "Paris Saint-Germain",
+    "price": "699kr",
+    "image": "images/imagess/Paris.jpg",
+    "description": "Paris Saint-Germain official kit. Support PSG in this stylish and comfortable shirt. Very nice to wear and cool to flex with. An ultimate shirt for the legends.",
+    "itemNumber": "PSG-006"
+  },
+  {
+    "id": 7,
+    "name": "Bayern Munich Shirt",
+    "team": "Bayern Munich",
+    "price": "699kr",
+    "image": "images/imagess/byern.jpg",
+    "description": "Official Bayern Munich shirt with premium design. Show your Bavarian pride in style. Very nice to wear and cool to flex with. An ultimate shirt for the legends",
+    "itemNumber": "BAY-007"
+  }
+]
