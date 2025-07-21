@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jumperzz - Modern Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+
+<body>
+
+<!-- Mobile Warning Message -->
+<div class="mobile-warning">
+  <p>This site is for computer only. Please use a desktop or laptop for the best experience.</p>
+</div>
+
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Reallogo (1).png" alt="Jumperzz Logo" />
+            </a>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Our Products</a>
+            <a href="#aboutus">About Us</a>
+
+
+        </div>
+
+        <!-- Profile and Cart Icons -->
+        <div class="nav-icons">
+            <button class="nav-icon-btn" aria-label="Profile">
+                <i class="fa-solid fa-user"></i>
+            </button>
+            <button class="nav-icon-btn" aria-label="Cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </div>
+    </nav>
+
+<section id="home" class="hero">
+  <div class="banner-slider">
+    <video autoplay muted loop playsinline>
+      <source src="videos/Neymar JR 4K Clips • Clips for edits • Best Scene Pack • No Watermark • Full HDR [21 60p].mp4" type="video/mp4" />
+      <!-- You can add more source tags for other formats if needed -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="hero-content">
+    <h1>Welcome to Jumperzz</h1>
+    <p>Find your perfect set and stay playing with style.</p>
+    <a href="products.html" class="cta-button">Shop Now</a>
+  </div>
+</section>
+
+  
+<section id="products" class="products gradient-section">
+    <h2>Newest Products</h2>
+    <div class="product-grid" id="productsGrid">
+        <!-- Products inserted by script.js -->
+    </div>
+</section>
+
+<!-- Cart Side Panel -->
+<aside id="cartPanel" class="side-panel" aria-hidden="true">
+  <button id="closeCartBtn" class="close-btn" aria-label="Close Cart">&times;</button>
+  <h2>Your Cart</h2>
+  <div id="cartItems" class="cart-items">
+    <!-- Cart products will be injected here -->
+  </div>
+  <button id="checkoutBtn" class="checkout-btn">Checkout</button>
+</aside>
+
+
+
+
+<!-- About Us Section -->
+<section id="aboutus" class="about gradient-section">
+    <h2>About Jumperzz</h2>
+    <p>At Jumperzz, soccer isn’t just a game — it’s a way of life. We’re a team of soccer lovers dedicated to bringing you
+        high-quality, stylish soccer clothing that fuels your passion both on and off the field.
+        From training kits to casual wear, every piece we design is inspired by the spirit, energy, and determination that
+        soccer players live every day. Whether you’re chasing your dreams on the pitch or cheering from the sidelines, Jumperzz
+        has got you covered with gear that matches your love for the beautiful game.
+        Our mission is simple: to celebrate the passion for soccer through clothing that looks great, feels comfortable, and
+        stands up to the toughest matches. Join us, wear your passion, and be part of the Jumperzz family.
+    </p>
+</section>
+
+    <footer>
+        <p>&copy; 2025 Jumperzz. All rights reserved.</p>
+    </footer>
+
+ <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down, hide navbar
+        navbar.classList.add('navbar--hidden');
+      } else {
+        // Scrolling up, show navbar
+        navbar.classList.remove('navbar--hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  });
+</script>
+
+
+    <script src="script.js"></script>
+
+
+    
+</body>
+
+
+
+</html>
